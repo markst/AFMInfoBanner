@@ -33,6 +33,8 @@ typedef NS_ENUM(NSUInteger, AFMInfoBannerStyle) {
 - (void)show:(BOOL)animated withCompletion:(void (^)())completionBlock;
 - (void)hide:(BOOL)animated withCompletion:(void (^)())completionBlock;
 
+- (void)showBelowView:(UIView *)view animated:(BOOL)animated;
+
 + (instancetype)showWithText:(NSString *)text
                        style:(AFMInfoBannerStyle)style
                 andHideAfter:(NSTimeInterval)timeout;

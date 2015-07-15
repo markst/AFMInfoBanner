@@ -197,9 +197,20 @@ static const CGFloat kDefaultHideInterval = 2.0;
 
 - (void)show:(BOOL)animated
 {
-    [self applyStyle];
-    [self setupViewsAndFrames];
+    [self showBelowView:nil animated:animated];
+}
 
+- (void)showBelowView:(UIView *)view animated:(BOOL)animated
+{
+    [self applyStyle];
+    
+    if (!view) {
+        [self setupViewsAndFrames];
+    } else {
+        self.targetView = view.superview;
+        self.viewAboveBanner = view;
+    }
+    
     // In previously indicated, send subview to be below another view.
     // This is used when showing below navigation bar
     if (self.viewAboveBanner)
